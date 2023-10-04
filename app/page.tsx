@@ -2,7 +2,7 @@ import Card from "@/components/home/card";
 import ComponentGrid from "@/components/home/component-grid";
 import Image from "next/image";
 import { Sparkle } from 'lucide-react';
-import SquigglyLines from "@/components/home/squigglylines"
+import SquigglyLines from "@/components/home/squiggly-lines"
 
 export default async function Home() {
 
