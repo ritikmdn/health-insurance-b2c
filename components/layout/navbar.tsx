@@ -6,6 +6,7 @@ import useScroll from "@/lib/hooks/use-scroll";
 import { useSignInModal } from "./sign-in-modal";
 import UserDropdown from "./user-dropdown";
 import { Session } from "next-auth";
+import { Phone } from 'lucide-react';
 
 export default function NavBar({ session }: { session: Session | null }) {
   const { SignInModal, setShowSignInModal } = useSignInModal();
@@ -13,7 +14,7 @@ export default function NavBar({ session }: { session: Session | null }) {
 
   return (
     <>
-      <SignInModal />
+      {/* <SignInModal /> */}
       <div
         className={`fixed top-0 w-full flex justify-center ${
           scrolled
@@ -30,9 +31,9 @@ export default function NavBar({ session }: { session: Session | null }) {
               height="30"
               className="mr-2 rounded-sm"
             ></Image>
-            <p>Precedent</p>
+            <p>Simple.life</p>
           </Link>
-          <div>
+          {/* <div>
             {session ? (
               <UserDropdown session={session} />
             ) : (
@@ -43,6 +44,15 @@ export default function NavBar({ session }: { session: Session | null }) {
                 Sign In
               </button>
             )}
+          </div> */}
+          <div>
+              <button
+                className="flex items-center rounded-lg border bg-white p-1.5 px-4 text-sm text-black transition-all hover:bg-blue-500 hover:text-white"
+                onClick={() => setShowSignInModal(true)}
+              >
+                <Phone size={16} className="mr-2" aria-hidden="true" />
+                Schedule a call
+              </button>
           </div>
         </div>
       </div>

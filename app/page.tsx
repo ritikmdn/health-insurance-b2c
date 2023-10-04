@@ -1,13 +1,15 @@
 import Card from "@/components/home/card";
 import ComponentGrid from "@/components/home/component-grid";
 import Image from "next/image";
+import { Sparkle } from 'lucide-react';
+import SquigglyLines from "@/components/home/squigglylines"
 
 export default async function Home() {
 
 
   return (
     <>
-      <div className="z-10 w-full max-w-2xl p-10 xl:px-0">
+      <div className="z-10 w-full max-w-2xl my-3">
         {/* <a
           href="https://twitter.com/steventey/status/1613928948915920896"
           target="_blank"
@@ -19,18 +21,19 @@ export default async function Home() {
             Introducing Precedent
           </p>
         </a> */}
-        <h1
-          className="animate-fade-up bg-gradient-to-br from-black to-stone-500 bg-clip-text text-center font-display text-4xl tracking-[-0.02em] text-transparent opacity-0 drop-shadow-sm [text-wrap:balance] md:text-6xl md:leading-[5rem]"
-          style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
-        >
-          Building blocks for your Next project
+        <h1 className="mx-auto max-w-4xl font-display text-5xl text-center font-bold tracking-normal animate-fade-up drop-shadow-sm [text-wrap:balance] md:text-6xl md:leading-[5rem]">
+          Insurance{" "}
+          <span className="relative whitespace-nowrap text-blue-600">
+            <SquigglyLines />
+            <span className="relative">Simplified</span>
+          </span>{" "}
+          Thanks to AI.
         </h1>
         <p
-          className="mt-6 animate-fade-up text-center text-gray-500 opacity-0 [text-wrap:balance] md:text-xl"
+          className="mt-4 animate-fade-up text-center text-gray-500 opacity-0 [text-wrap:balance] md:text-xl"
           style={{ animationDelay: "0.25s", animationFillMode: "forwards" }}
         >
-          An opinionated collection of components, hooks, and utilities for your
-          Next.js project.
+          Get personalised guidance and not sales pitches. Discover your ideal policy and get contextualised answers, minus the unwanted calls.
         </p>
       </div>
       <div className="my-10 grid w-full max-w-screen-xl animate-fade-up grid-cols-1 gap-10 px-5 md:grid-cols-3 xl:px-0">
@@ -56,47 +59,36 @@ export default async function Home() {
 const features = [
 
   {
-    title: "Performance first",
+    title: "Life Insurance 101",
     description:
-      "Built on [Next.js](https://nextjs.org/) primitives like `@next/font` and `next/image` for stellar performance.",
+      "**Understand term insurance with our AI advisor**: learn its importance, grasp key concepts, and see its role in financial planning.",
       demo: (
-          <Image
-            src="https://vercel.com/button"
-            alt="Deploy with Vercel"
-            width={120}
-            height={30}
-            unoptimized
-          />
+        <button className="flex items-center rounded-lg border font-semibold bg-blue-500 p-3 px-4 text-sm text-white transition-all hover:bg-white hover:text-black">
+        <Sparkle size={16} className="mr-2" aria-hidden="true" />
+        Launch AI assistant
+      </button>
       ),
   },
   {
-    title: "One-click Deploy",
+    title: "Discover your ideal policy",
     description:
-      "Jumpstart your next project by deploying Precedent to [Vercel](https://vercel.com/) in one click.",
-    demo: (
-      <a href="https://www.google.com">
-        <Image
-          src="https://vercel.com/button"
-          alt="Deploy with Vercel"
-          width={120}
-          height={30}
-          unoptimized
-        />
-      </a>
-    ),
+      "**Find the top 3 policies that suit your requirements**: our AI advisor personalises its suggestions based on what's important to you..",
+      demo: (
+        <button className="flex items-center rounded-lg border font-semibold bg-blue-500 p-3 px-4 text-sm text-white transition-all hover:bg-white hover:text-black">
+        <Sparkle size={16} className="mr-2" aria-hidden="true" />
+        Launch AI assistant
+      </button>
+      ),
   },
   {
-    title: "Built-in Auth + Database",
+    title: "Compare policies",
     description:
-      "Precedent comes with authentication and database via [Auth.js](https://authjs.dev/) + [Prisma](https://prisma.io/)",
+      "**With our AI's expertise, not only compare but question**: put policies head to head, ask questions, and unveil the nuances.",
       demo: (
-          <Image
-            src="https://vercel.com/button"
-            alt="Deploy with Vercel"
-            width={120}
-            height={30}
-            unoptimized
-          />
+        <button className="flex items-center rounded-lg border font-semibold bg-blue-500 p-3 px-4 text-sm text-white transition-all hover:bg-white hover:text-black">
+        <Sparkle size={16} className="mr-2" aria-hidden="true" />
+        Launch AI assistant
+      </button>
       ),
   },
 ];

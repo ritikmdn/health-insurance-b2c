@@ -7,7 +7,7 @@ import Footer from "@/components/layout/footer";
 import { Suspense } from "react";
 
 export const metadata = {
-  title: "Precedent - Building blocks for your Next.js project",
+  title: "Simple.life: Personalised AI Life Insurance Agent ",
   description:
     "Precedent is the all-in-one solution for your Next.js project. It includes a design system, authentication, analytics, and more.",
   twitter: {
@@ -17,7 +17,7 @@ export const metadata = {
       "Precedent is the all-in-one solution for your Next.js project. It includes a design system, authentication, analytics, and more.",
     creator: "@steventey",
   },
-  metadataBase: new URL("https://precedent.dev"),
+  metadataBase: new URL("https://getsimple.life"),
   themeColor: "#FFF",
 };
 
