@@ -7,17 +7,17 @@ import Footer from "@/components/layout/footer";
 import { Suspense } from "react";
 
 export const metadata = {
-  title: "Simple.life: Personalised AI Life Insurance Agent ",
+  title: "Simple.life: Personalised AI Life Insurance Agent",
   description:
-    "Precedent is the all-in-one solution for your Next.js project. It includes a design system, authentication, analytics, and more.",
+    "Compare life insurance policies and find the best one for you with Simple.life. Leverage AI to find various term insurance plans that are tailored to your requirements and needs",
   twitter: {
     card: "summary_large_image",
-    title: "Precedent - Building blocks for your Next.js project",
+    title: "Simple.life: Personalised AI Life Insurance Agent",
     description:
-      "Precedent is the all-in-one solution for your Next.js project. It includes a design system, authentication, analytics, and more.",
-    creator: "@steventey",
+      "Simple.life is your personal AI life insurance advisor that helps you find term insurance plans that are tailored to your requirements and needs.",
+    creator: "@ritik_mdn11",
   },
-  metadataBase: new URL("https://getsimple.life"),
+  metadataBase: new URL("https://www.getsimple.life"),
   themeColor: "#FFF",
 };
 
