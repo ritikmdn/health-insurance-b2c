@@ -1,3 +1,7 @@
+import { Chat } from '@/components/chat/chat-home'
+
+// export const runtime = 'edge'
+
 import Card from "@/components/home/card";
 import ComponentGrid from "@/components/home/component-grid";
 import Image from "next/image";
@@ -6,21 +10,9 @@ import SquigglyLines from "@/components/home/squiggly-lines"
 
 export default async function Home() {
 
-
   return (
     <>
       <div className="z-10 w-full max-w-2xl my-3">
-        {/* <a
-          href="https://twitter.com/steventey/status/1613928948915920896"
-          target="_blank"
-          rel="noreferrer"
-          className="mx-auto mb-5 flex max-w-fit animate-fade-up items-center justify-center space-x-2 overflow-hidden rounded-full bg-blue-100 px-7 py-2 transition-colors hover:bg-blue-200"
-        >
-          <Twitter className="h-5 w-5 text-[#1d9bf0]" />
-          <p className="text-sm font-semibold text-[#1d9bf0]">
-            Introducing Precedent
-          </p>
-        </a> */}
         <h1 className="mx-auto max-w-4xl font-display text-5xl text-center font-bold tracking-normal animate-fade-up drop-shadow-sm [text-wrap:balance] md:text-6xl md:leading-[5rem]">
           Insurance{" "}
           <span className="relative whitespace-nowrap text-blue-600">
@@ -52,6 +44,7 @@ export default async function Home() {
           />
         ))}
       </div>
+      <Chat/>
     </>
   );
 }
