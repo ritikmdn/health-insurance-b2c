@@ -42,6 +42,7 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
         if (response.status === 401) {
           toast.error(response.statusText)
         }
+        console.log("AI response", response); 
       }
     })
 
