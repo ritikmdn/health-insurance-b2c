@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { customAlphabet } from 'nanoid'
 import ms from "ms";
 
 export function cn(...inputs: ClassValue[]) {
@@ -12,6 +13,11 @@ export const timeAgo = (timestamp: Date, timeOnly?: boolean): string => {
     timeOnly ? "" : " ago"
   }`;
 };
+
+export const nanoid = customAlphabet(
+  '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
+  7
+)
 
 export async function fetcher<JSON = any>(
   input: RequestInfo,
