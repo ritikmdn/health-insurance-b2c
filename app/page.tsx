@@ -1,4 +1,4 @@
-import { Chat } from '@/components/chat/chat-home'
+import { ChatHome } from '@/components/chat/chat-home'
 
 // export const runtime = 'edge'
 
@@ -44,7 +44,7 @@ export default async function Home() {
           />
         ))}
       </div>
-      <Chat/>
+      <ChatHome/>
     </>
   );
 }

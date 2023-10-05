@@ -1,4 +1,4 @@
-import { kv } from '@vercel/kv'
+// import { kv } from '@vercel/kv'
 import { OpenAIStream, StreamingTextResponse } from 'ai'
 import { Configuration, OpenAIApi } from 'openai-edge'
 
@@ -46,7 +46,7 @@ export async function POST(req: Request) {
           }
         ]
       }
-      await kv.hmset(`chat:${id}`, payload)
+      // await kv.hmset(`chat:${id}`, payload)
       // Removed the line with `userId` as it's no longer available.
     }
   })

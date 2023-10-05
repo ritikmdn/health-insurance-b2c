@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button'
 import { PromptForm } from '@/components/chat/prompt-form'
 import { ButtonScrollToBottom } from '@/components/chat/button-scroll-to-bottom'
 import { IconRefresh, IconStop } from '@/components/ui/icons'
-// import { FooterText } from '@/components/footer'
 
 export interface ChatPanelProps
   extends Pick<
@@ -17,7 +16,8 @@ export interface ChatPanelProps
     | 'input'
     | 'setInput'
   > {
-  id?: string
+  id?: string,
+  onSubmitMessage?: () => void
 }
 
 export function ChatPanel({
@@ -28,7 +28,8 @@ export function ChatPanel({
   reload,
   input,
   setInput,
-  messages
+  messages,
+  onSubmitMessage 
 }: ChatPanelProps) {
   return (
     <div className="fixed inset-x-0 bottom-4 bg-gradient-to-b from-muted/10 from-10% to-muted/30 to-50%">
@@ -39,7 +40,7 @@ export function ChatPanel({
             <Button
               variant="outline"
               onClick={() => stop()}
-              className="bg-background"
+              className="bg-white"
             >
               <IconStop className="mr-2" />
               Stop generating
@@ -49,7 +50,7 @@ export function ChatPanel({
               <Button
                 variant="outline"
                 onClick={() => reload()}
-                className="bg-background"
+                className="bg-white"
               >
                 <IconRefresh className="mr-2" />
                 Regenerate response
@@ -65,12 +66,15 @@ export function ChatPanel({
                 content: value,
                 role: 'user'
               })
+              setInput("");
+              if (onSubmitMessage) {
+                onSubmitMessage();
+              }
             }}
             input={input}
             setInput={setInput}
             isLoading={isLoading}
           />
-          {/* <FooterText className="hidden sm:block" /> */}
         </div>
       </div>
     </div>
