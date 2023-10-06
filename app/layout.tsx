@@ -29,8 +29,8 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script>window.COFRAME_PAGE_ID="8e0d12c50b2c75fc3f81bcd4";</script>
-        <script src='https://cdn.jsdelivr.net/npm/coframe-ai/dist/cf.min.js'></script>
+      <script>{`window.COFRAME_PAGE_ID="8e0d12c50b2c75fc3f81bcd4";`}</script>
+        <script async src='https://cdn.jsdelivr.net/npm/coframe-ai/dist/cf.min.js'></script>
       </head>
       <body className={cx(sfPro.variable, inter.variable)}>
         <div className="fixed h-screen w-full bg-gradient-to-br from-indigo-50 via-white to-cyan-100" />
