@@ -54,7 +54,7 @@ const features = [
   {
     title: "Life Insurance 101",
     description:
-      "**Understand term insurance with our AI advisor**: learn its importance, grasp key concepts, and see its role in financial planning.",
+      "**Understand health insurance with our AI advisor**: learn its importance, grasp key concepts, and see its role in financial planning.",
       demo: (
         <button className="flex items-center rounded-lg border font-semibold bg-blue-500 p-3 px-4 text-sm text-white transition-all hover:bg-white hover:text-black">
         <Sparkle size={16} className="mr-2" aria-hidden="true" />

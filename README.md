@@ -1,6 +1,6 @@
-<a href="https://getsimple.life">
-  <img src="https://getsimple.life/opengraph-image">
-  <h1 align="center">Simple.life</h1>
+<a href="https://getsimple.health">
+  <img src="https://getsimple.health/opengraph-image">
+  <h1 align="center">Simple.health</h1>
 </a>
 
 <p align="center">
@@ -16,7 +16,7 @@
 
 ## Introduction
 
-Simple.life is your personal AI life insurance advisor that helps you find term insurance plans that are tailored to your requirements and needs.
+Simple.health is your personal AI health insurance advisor that helps you find health insurance plans that are tailored to your requirements and needs.
 
 ## Tech Stack + Features
 

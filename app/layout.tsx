@@ -7,17 +7,17 @@ import Footer from "@/components/layout/footer";
 import { Suspense } from "react";
 
 export const metadata = {
-  title: "Simple.life: Personalised AI Life Insurance Agent",
+  title: "Simple.health: Personalised AI Life Insurance Agent",
   description:
-    "Compare life insurance policies and find the best one for you with Simple.life. Leverage AI to find various term insurance plans that are tailored to your requirements and needs",
+    "Compare health insurance policies and find the best one for you with Simple.health. Leverage AI to find various health insurance plans that are tailored to your requirements and needs",
   twitter: {
     card: "summary_large_image",
-    title: "Simple.life: Personalised AI Life Insurance Agent",
+    title: "Simple.health: Personalised AI Life Insurance Agent",
     description:
-      "Simple.life is your personal AI life insurance advisor that helps you find term insurance plans that are tailored to your requirements and needs.",
+      "Simple.health is your personal AI health insurance advisor that helps you find health insurance plans that are tailored to your requirements and needs.",
     creator: "@ritik_mdn11",
   },
-  metadataBase: new URL("https://www.getsimple.life"),
+  metadataBase: new URL("https://www.getsimple.health"),
   themeColor: "#FFF",
 };
 
