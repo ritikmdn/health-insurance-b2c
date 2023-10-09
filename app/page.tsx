@@ -52,7 +52,7 @@ export default async function Home() {
 const features = [
 
   {
-    title: "Life Insurance 101",
+    title: "Health Insurance 101",
     description:
       "**Understand health insurance with our AI advisor**: learn its importance, grasp key concepts, and see its role in financial planning.",
       demo: (

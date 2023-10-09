@@ -2,7 +2,7 @@
 import { ImageResponse } from "next/server";
 
 export const runtime = "edge";
-export const alt = "Simple.health: Personalised AI Life Insurance Agent";
+export const alt = "Simple.health: Personalised AI Health Insurance Agent";
 export const contentType = "image/png";
 
 export default async function OG() {

@@ -4,7 +4,7 @@
 </a>
 
 <p align="center">
-  Personalised AI Life Insurance Agent
+  Personalised AI Health Insurance Agent
 </p>
 
 <p align="center">

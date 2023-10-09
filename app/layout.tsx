@@ -7,12 +7,12 @@ import Footer from "@/components/layout/footer";
 import { Suspense } from "react";
 
 export const metadata = {
-  title: "Simple.health: Personalised AI Life Insurance Agent",
+  title: "Simple.health: Personalised AI Health Insurance Agent",
   description:
     "Compare health insurance policies and find the best one for you with Simple.health. Leverage AI to find various health insurance plans that are tailored to your requirements and needs",
   twitter: {
     card: "summary_large_image",
-    title: "Simple.health: Personalised AI Life Insurance Agent",
+    title: "Simple.health: Personalised AI Health Insurance Agent",
     description:
       "Simple.health is your personal AI health insurance advisor that helps you find health insurance plans that are tailored to your requirements and needs.",
     creator: "@ritik_mdn11",
