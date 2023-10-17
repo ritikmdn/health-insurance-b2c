@@ -65,7 +65,7 @@ const features = [
   {
     title: "Discover your ideal policy",
     description:
-      "**Find the top 3 policies that suit your requirements**: our AI advisor personalises its suggestions based on what's important to you..",
+      "**Find the top 3 policies that suit your requirements**: our AI advisor personalises its suggestions based on what's important to you.",
       demo: (
         <button className="flex items-center rounded-lg border font-semibold bg-blue-500 p-3 px-4 text-sm text-white transition-all hover:bg-white hover:text-black">
         <Sparkle size={16} className="mr-2" aria-hidden="true" />

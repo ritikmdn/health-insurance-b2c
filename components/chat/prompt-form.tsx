@@ -56,7 +56,7 @@ export function PromptForm({
           rows={1}
           value={input}
           onChange={e => setInput(e.target.value)}
-          placeholder="Ask AI advisor"
+          placeholder="Speak with AI advisor"
           spellCheck={false}
           className="min-h-[60px] w-full resize-none bg-transparent py-[1.3rem] focus:ring-0 focus:border-0 border-0 sm:text-sm placeholder-gray-700/40"
         />
