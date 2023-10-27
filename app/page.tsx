@@ -28,7 +28,8 @@ export default async function Home() {
           Get personalised guidance and not sales pitches. Discover your ideal policy and get contextualised answers, minus the unwanted calls.
         </p>
       </div>
-      <div className="my-10 grid w-full max-w-screen-xl animate-fade-up grid-cols-1 gap-10 px-5 md:grid-cols-3 xl:px-0">
+      {/* <div className="my-10 grid w-full max-w-screen-xl animate-fade-up grid-cols-1 gap-10 px-5 md:grid-cols-3 xl:px-0"> */}
+      <div className="my-10 grid w-50% max-w-screen-xl animate-fade-up grid-cols-1 gap-10 px-5 md:grid-cols-1 xl:px-0">
         {features.map(({ title, description, demo }) => (
           <Card
             key={title}
@@ -62,26 +63,26 @@ const features = [
       </button>
       ),
   },
-  {
-    title: "Discover your ideal policy",
-    description:
-      "**Find the top 3 policies that suit your requirements**: our AI advisor personalises its suggestions based on what's important to you.",
-      demo: (
-        <button className="flex items-center rounded-lg border font-semibold bg-blue-500 p-3 px-4 text-sm text-white transition-all hover:bg-white hover:text-black">
-        <Sparkle size={16} className="mr-2" aria-hidden="true" />
-        Launch AI assistant
-      </button>
-      ),
-  },
-  {
-    title: "Compare policies",
-    description:
-      "**With our AI's expertise, not only compare but question**: put policies head to head, ask questions, and unveil the nuances.",
-      demo: (
-        <button className="flex items-center rounded-lg border font-semibold bg-blue-500 p-3 px-4 text-sm text-white transition-all hover:bg-white hover:text-black">
-        <Sparkle size={16} className="mr-2" aria-hidden="true" />
-        Launch AI assistant
-      </button>
-      ),
-  },
+  // {
+  //   title: "Discover your ideal policy",
+  //   description:
+  //     "**Find the top 3 policies that suit your requirements**: our AI advisor personalises its suggestions based on what's important to you.",
+  //     demo: (
+  //       <button className="flex items-center rounded-lg border font-semibold bg-blue-500 p-3 px-4 text-sm text-white transition-all hover:bg-white hover:text-black">
+  //       <Sparkle size={16} className="mr-2" aria-hidden="true" />
+  //       Launch AI assistant
+  //     </button>
+  //     ),
+  // },
+  // {
+  //   title: "Compare policies",
+  //   description:
+  //     "**With our AI's expertise, not only compare but question**: put policies head to head, ask questions, and unveil the nuances.",
+  //     demo: (
+  //       <button className="flex items-center rounded-lg border font-semibold bg-blue-500 p-3 px-4 text-sm text-white transition-all hover:bg-white hover:text-black">
+  //       <Sparkle size={16} className="mr-2" aria-hidden="true" />
+  //       Launch AI assistant
+  //     </button>
+  //     ),
+  // },
 ];
