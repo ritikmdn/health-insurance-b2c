@@ -7,6 +7,7 @@ import ComponentGrid from "@/components/home/component-grid";
 import Image from "next/image";
 import { Sparkle } from 'lucide-react';
 import SquigglyLines from "@/components/home/squiggly-lines"
+import Link from 'next/link'
 
 export default async function Home() {
 
@@ -57,10 +58,12 @@ const features = [
     description:
       "**Understand health insurance with our AI advisor**: learn its importance, grasp key concepts, and see its role in financial planning.",
       demo: (
-        <button className="flex items-center rounded-lg border font-semibold bg-blue-500 p-3 px-4 text-sm text-white transition-all hover:bg-white hover:text-black">
+        <Link href="/ai-advisor">
+        <button className="flex items-center rounded-lg border font-semibold bg-blue-500 p-3 px-4 text-sm text-white transition-all hover:bg-white hover:text-blue-500">
         <Sparkle size={16} className="mr-2" aria-hidden="true" />
         Launch AI assistant
       </button>
+      </Link>
       ),
   },
   {

@@ -28,12 +28,14 @@ export default function NavBar() {
             <p>Simple.health</p>
           </Link>
           <div>
+              <Link href="https://bit.ly/simpleinsure_healthinsurance" target="_blank">
               <button
                 className="flex items-center rounded-lg border bg-white p-1.5 px-4 text-sm text-black transition-all hover:bg-blue-500 hover:text-white"
               >
                 <Phone size={16} className="mr-2" aria-hidden="true" />
                 Schedule a call
               </button>
+              </Link>
           </div>
         </div>
       </div>

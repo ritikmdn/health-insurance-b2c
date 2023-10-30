@@ -92,7 +92,7 @@ const UserForm: React.FC = () => {
         </div>
       </div>
       <div className='pt-5'>
-        <button type="submit" className="mt-5 rounded-lg border justify-center font-semibold bg-blue-500 h-[50px] w-[500px] text-sm text-white transition-all hover:bg-white hover:text-black">
+        <button type="submit" className="mt-5 rounded-lg border justify-center font-semibold bg-blue-500 h-[50px] w-[500px] text-sm text-white transition-all hover:bg-white hover:text-blue-500">
           Submit
         </button>
       </div>

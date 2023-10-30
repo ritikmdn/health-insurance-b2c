@@ -8,7 +8,7 @@ export default function AIAdvisor() {
   return (
     <>
       <h1 className="mx-auto max-w-4xl font-display text-4xl text-center font-bold tracking-normal animate-fade-up drop-shadow-sm md:text-4xl md:leading-[5rem]">
-        Let&apos;s
+        Let&apos;s{" "}
         <span className="relative whitespace-nowrap text-blue-600">
           <SquigglyLines />
           <span className="relative">personalise</span>
