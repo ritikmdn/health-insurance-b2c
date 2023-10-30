@@ -2,7 +2,7 @@ import { type UseChatHelpers } from 'ai/react';
 import { PromptForm } from '@/components/chat/prompt-form';
 
 export interface ChatPanelProps extends Pick<UseChatHelpers, 'input' | 'setInput'> {
-  onSubmitMessage: () => void; // Making this mandatory since this is our main functionality now
+  onSubmitMessage: () => void; 
 }
 
 export function ChatPanel({
