@@ -55,7 +55,8 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
       append({ content: initialMessage as string, role: 'user' });
       console.log("Message appended");
     }
-  }, [append, initialMessage, input, setInput]);
+  }, [])
+
 
   return (
     <>
