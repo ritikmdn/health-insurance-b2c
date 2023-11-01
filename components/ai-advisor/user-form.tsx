@@ -106,7 +106,7 @@ const UserForm: FC<UserFormProps> = ({ onFormSubmit }) => {
         </div>
         <div className='pt-5'>
           <button type="submit" className="flex items-center mt-5 rounded-lg border justify-center font-semibold bg-blue-500 h-[50px] w-[500px] text-sm text-white transition-all hover:bg-white hover:text-blue-500">
-            Let's get started
+            Let&apos;s get started
             <ChevronRight size={16} className="ml-2" aria-hidden="true" />
           </button>
         </div>
