@@ -7,6 +7,7 @@ import ComponentGrid from "@/components/home/component-grid";
 import Image from "next/image";
 import { Sparkle } from 'lucide-react';
 import SquigglyLines from "@/components/home/squiggly-lines"
+import Link from 'next/link'
 
 export default async function Home() {
 
@@ -29,6 +30,7 @@ export default async function Home() {
         </p>
       </div>
       <div className="my-10 grid w-full max-w-screen-xl animate-fade-up grid-cols-1 gap-10 px-5 md:grid-cols-3 xl:px-0">
+      {/* <div className="my-10 grid w-50% max-w-screen-xl animate-fade-up grid-cols-1 gap-10 px-5 md:grid-cols-1 xl:px-0"> */}
         {features.map(({ title, description, demo }) => (
           <Card
             key={title}
@@ -56,10 +58,12 @@ const features = [
     description:
       "**Understand health insurance with our AI advisor**: learn its importance, grasp key concepts, and see its role in financial planning.",
       demo: (
-        <button className="flex items-center rounded-lg border font-semibold bg-blue-500 p-3 px-4 text-sm text-white transition-all hover:bg-white hover:text-black">
+        <Link href="/ai-advisor">
+        <button className="flex items-center rounded-lg border font-semibold bg-blue-500 p-3 px-4 text-sm text-white transition-all hover:bg-white hover:text-blue-500">
         <Sparkle size={16} className="mr-2" aria-hidden="true" />
         Launch AI assistant
       </button>
+      </Link>
       ),
   },
   {
@@ -67,9 +71,9 @@ const features = [
     description:
       "**Find the top 3 policies that suit your requirements**: our AI advisor personalises its suggestions based on what's important to you.",
       demo: (
-        <button className="flex items-center rounded-lg border font-semibold bg-blue-500 p-3 px-4 text-sm text-white transition-all hover:bg-white hover:text-black">
+        <button className="flex items-center rounded-lg border font-semibold bg-gray-300 p-3 px-4 text-sm text-white transition-all">
         <Sparkle size={16} className="mr-2" aria-hidden="true" />
-        Launch AI assistant
+        Coming soon
       </button>
       ),
   },
@@ -78,9 +82,9 @@ const features = [
     description:
       "**With our AI's expertise, not only compare but question**: put policies head to head, ask questions, and unveil the nuances.",
       demo: (
-        <button className="flex items-center rounded-lg border font-semibold bg-blue-500 p-3 px-4 text-sm text-white transition-all hover:bg-white hover:text-black">
+        <button className="flex items-center rounded-lg border font-semibold bg-gray-200 p-3 px-4 text-sm text-white transition-all">
         <Sparkle size={16} className="mr-2" aria-hidden="true" />
-        Launch AI assistant
+        Coming soon
       </button>
       ),
   },

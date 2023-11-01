@@ -42,21 +42,21 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
         if (response.status === 401) {
           toast.error(response.statusText)
         }
-        console.log("AI response", response); 
+        console.log("AI response", response);
       }
     })
 
-    useEffect(() => {
-      console.log("useEffect executed. Initial message:", initialMessage);
-      if (initialMessage) {
-        setInput(initialMessage as string)
-        console.log("Input state updated:", input);
-        
-        append({ content: initialMessage as string, role: 'user' });
-        console.log("Message appended");
-      }
-    }, [])
-  
+  useEffect(() => {
+    console.log("useEffect executed. Initial message:", initialMessage);
+    if (initialMessage) {
+      setInput(initialMessage as string)
+      console.log("Input state updated:", input);
+
+      append({ content: initialMessage as string, role: 'user' });
+      console.log("Message appended");
+    }
+  }, [])
+
 
   return (
     <>
