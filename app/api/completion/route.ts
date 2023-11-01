@@ -1,13 +1,16 @@
 // app/api/completion/route.ts
  
 import OpenAI from 'openai';
+import { Configuration, OpenAIApi } from 'openai-edge'
 import { OpenAIStream, StreamingTextResponse } from 'ai';
  
 export const runtime = 'edge';
  
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY!,
-});
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY
+})
+
+const openai = new OpenAIApi(configuration)
  
 export async function POST(req: Request) {
   // Extract the `prompt` from the body of the request
