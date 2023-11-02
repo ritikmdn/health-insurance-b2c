@@ -1,12 +1,55 @@
-import React, { useState, FormEvent } from 'react';
+'use client'
+
+import React, { useState, useEffect, FormEvent } from 'react';
 import GuideTemplate from "@/components/ai-advisor/guide-template";
 import ProgressBar from "@/components/ai-advisor/progress-bar";
 import ScheduleCall from "@/components/ai-advisor/schedule-call";
 import SquigglyLines from "@/components/home/squiggly-lines"
+import { useCompletion } from 'ai/react';
+import { motion } from 'framer-motion';
+import { UserDetails } from '@/app/ai-advisor/page';
 
-const Guide: React.FC = () => {
+interface GuideProps {
+  userDetails: UserDetails; // Use the imported UserDetails type here
+}
+
+const Guide: React.FC<GuideProps> = ({ userDetails }) => {
   const [currentGuideIndex, setCurrentGuideIndex] = useState(0);
+  const [guideData, setGuideData] = useState<{ reference: string; isLoading: boolean }[]>([]);
+  const { complete } = useCompletion({
+    api: '/api/completion',
+  });
 
+  useEffect(() => {
+    const fetchAllReferences = async () => {
+      // Start with all guides marked as loading
+      const initialGuideData = guide.map(() => ({ reference: '', isLoading: true }));
+      setGuideData(initialGuideData);
+    
+      // Fetch all references in parallel
+      const fetchPromises = guide.map((_, index) => {
+        const prompt = `User details:\nGender: ${userDetails.gender}, Age: ${userDetails.age}, Corporate Cover: ${userDetails.corporateCover}, Additional Comments: ${userDetails.additionalComments}\n---\nReference guide: ${guide[index].reference}`;
+        return complete(prompt)
+          .then(response => response || '') // Ensure response is a string
+          .catch(() => 'Error fetching reference'); // Handle errors
+      });
+    
+      // Wait for all fetches to complete
+      const references = await Promise.all(fetchPromises);
+    
+      // Update the guide data with the new references, no longer loading
+      setGuideData(references.map(reference => ({
+        reference, // `reference` is guaranteed to be a string now
+        isLoading: false,
+      })));
+    };
+    
+  
+    if (userDetails && guide.length > 0) {
+      fetchAllReferences();
+    }
+  }, [complete, userDetails, guide]); // 'guide' needs to be added to dependencies array if it can change
+  
   const goNext = () => {
     setCurrentGuideIndex(prevIndex => prevIndex + 1);
     window.scrollTo(0, 0);
@@ -17,16 +60,36 @@ const Guide: React.FC = () => {
     window.scrollTo(0, 0);
   };
 
+  // Display a loader for the current guide if its reference hasn't loaded yet
+  const renderCurrentGuide = () => {
+    const currentGuide = guideData[currentGuideIndex];
+    if (currentGuide?.isLoading) {
+      return (
+        <div className="flex justify-center items-center">
+          <motion.div
+            animate={{ rotate: 36000 }}
+            transition={{ duration: 100, loop: Infinity, ease: "linear" }}
+            className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full"
+          />
+        </div>
+      );
+    }
+
+    return (
+      <GuideTemplate
+        index={guide[currentGuideIndex].index}
+        title={guide[currentGuideIndex].title}
+        reference={currentGuide?.reference}
+      />
+    );
+  };
+
   return (
     <>
       {currentGuideIndex < guide.length ? (
         <>
           <div className="flex flex-col my-10 w-full max-w-screen-xl px-5 xl:px-0">
-            <GuideTemplate
-              index={guide[currentGuideIndex].index}
-              title={guide[currentGuideIndex].title}
-              reference={guide[currentGuideIndex].reference}
-            />
+            {renderCurrentGuide()}
             <div className="flex justify-between mt-20">
               <button onClick={goBack} disabled={currentGuideIndex === 0} className="p-5 flex items-center mt-5 rounded-lg border justify-center font-semibold bg-blue-500 h-[50px] text-sm text-white transition-all hover:bg-white hover:text-blue-500">
                 Back

@@ -13,7 +13,7 @@ export default function GuideTemplate({
 }) {
   return (
     <>
-      <h1 className="mx-auto max-w-3xl font-display text-4xl text-center font-bold tracking-normal animate-fade-up drop-shadow-sm md:text-4xl md:leading-[3rem]">
+      <h1 className="mx-auto pb-5 max-w-3xl font-display text-4xl text-center font-bold tracking-normal animate-fade-up drop-shadow-sm md:text-4xl md:leading-[3rem]">
         <span className="relative text-blue-600">
           <span className="relative">{title}</span>
         </span>{" "}
@@ -30,6 +30,12 @@ export default function GuideTemplate({
             <h1
               {...props}
               className="text-2xl font-semibold py-4"
+            />
+          ),
+          p: ({ node, ...props }) => (
+            <p
+              {...props}
+              className="py-3"
             />
           ),
         }}
