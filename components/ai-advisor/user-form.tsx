@@ -14,8 +14,15 @@ const selectItemClasses =
   'z-10 px-5 overflow-hidden bg-transparent w-[500px] text-center hover:bg-indigo-50/80 hover:outline-none';
 
 interface UserFormProps {
-  onFormSubmit: () => void;
+  onFormSubmit: (details: UserDetails) => void;
 }
+
+type UserDetails = {
+  gender: string;
+  age: string;
+  corporateCover: string;
+  additionalComments: string;
+};
 
 const UserForm: FC<UserFormProps> = ({ onFormSubmit }) => {
   const [corporateCover, setCorporateCover] = useState('no');
@@ -26,7 +33,13 @@ const UserForm: FC<UserFormProps> = ({ onFormSubmit }) => {
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     if (typeof window !== 'undefined') {
-      onFormSubmit();
+      const details = {
+        gender,
+        age,
+        corporateCover,
+        additionalComments: textAreaInput,
+      };
+      onFormSubmit(details); // Pass the details to the callback
     }
   };
 

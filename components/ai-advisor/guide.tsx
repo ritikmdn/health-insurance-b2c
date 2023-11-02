@@ -1,11 +1,43 @@
-import React, { useState, FormEvent } from 'react';
+'use client'
+
+import React, { useState, useEffect, FormEvent } from 'react';
 import GuideTemplate from "@/components/ai-advisor/guide-template";
 import ProgressBar from "@/components/ai-advisor/progress-bar";
 import ScheduleCall from "@/components/ai-advisor/schedule-call";
 import SquigglyLines from "@/components/home/squiggly-lines"
+import { useCompletion } from 'ai/react';
+import { motion } from 'framer-motion';
+import { UserDetails } from '@/app/ai-advisor/page';
 
-const Guide: React.FC = () => {
+interface GuideProps {
+  userDetails: UserDetails; // Use the imported UserDetails type here
+}
+
+const Guide: React.FC<GuideProps> = ({ userDetails }) => {
   const [currentGuideIndex, setCurrentGuideIndex] = useState(0);
+  // Locally store our blog posts content
+  const [references, setReferences] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean[]>([]);
+  const { complete } = useCompletion({
+    api: '/api/completion',
+  });
+
+  useEffect(() => {
+    const fetchReference = async (index: number) => {
+      setIsLoading(prev => ({ ...prev, [index]: true })); // Set loading state for the specific guide
+      // const userDetailString = `Gender: ${userDetails.gender}, Age: ${userDetails.age}, Corporate Cover: ${userDetails.corporateCover}, Additional Comments: ${userDetails.additionalComments}`;
+      const prompt = `Gender: ${userDetails.gender}, Age: ${userDetails.age}, Corporate Cover: ${userDetails.corporateCover}, Additional Comments: ${userDetails.additionalComments}\nReference guide: ${guide[index].reference}`;
+      const completion = await complete(prompt);
+      setReferences(prev => ({ ...prev, [index]: completion || 'Error fetching reference' }));
+      setIsLoading(prev => ({ ...prev, [index]: false })); // Unset loading state for the specific guide
+    };
+
+    // Fetch all references when the component mounts
+    if (userDetails) { // Only fetch if userDetails is not null
+      guide.forEach((_, index) => fetchReference(index));
+    }
+  }, [complete, userDetails]); // Include userDetails in the dependency array
+
 
   const goNext = () => {
     setCurrentGuideIndex(prevIndex => prevIndex + 1);
@@ -17,16 +49,35 @@ const Guide: React.FC = () => {
     window.scrollTo(0, 0);
   };
 
+  // Display a loader for the current guide if its reference hasn't loaded yet
+  const renderCurrentGuide = () => {
+    if (isLoading[currentGuideIndex]) {
+      return (
+        <div className="flex justify-center items-center">
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1, loop: Infinity, ease: "linear" }}
+          className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full"
+        />
+        </div>
+      );
+    }
+
+    return (
+      <GuideTemplate
+        index={guide[currentGuideIndex].index}
+        title={guide[currentGuideIndex].title}
+        reference={references[currentGuideIndex]}
+      />
+    );
+  };
+
   return (
     <>
       {currentGuideIndex < guide.length ? (
         <>
           <div className="flex flex-col my-10 w-full max-w-screen-xl px-5 xl:px-0">
-            <GuideTemplate
-              index={guide[currentGuideIndex].index}
-              title={guide[currentGuideIndex].title}
-              reference={guide[currentGuideIndex].reference}
-            />
+            {renderCurrentGuide()}
             <div className="flex justify-between mt-20">
               <button onClick={goBack} disabled={currentGuideIndex === 0} className="p-5 flex items-center mt-5 rounded-lg border justify-center font-semibold bg-blue-500 h-[50px] text-sm text-white transition-all hover:bg-white hover:text-blue-500">
                 Back
@@ -507,34 +558,34 @@ const guide = [
     title: "What is health insurance?",
     reference: reference[0],
   },
-  {
-    index: 2,
-    title: "What is covered in health insurance?",
-    reference: reference[1],
-  },
-  {
-    index: 3,
-    title: "What is not covered in health insurance?",
-    reference: reference[2],
-  },
-  {
-    index: 4,
-    title: "What are the key factors to consider while buying health insurance?",
-    reference: reference[3],
-  },
-  {
-    index: 5,
-    title: "What are health insurance riders?",
-    reference: reference[4],
-  },
-  {
-    index: 6,
-    title: "Which Factors Affect Health Insurance Premium?",
-    reference: reference[5],
-  },
-  {
-    index: 7,
-    title: "Should I buy additional insurance if I'm covered under employer group health?",
-    reference: reference[6],
-  },
+  // {
+  //   index: 2,
+  //   title: "What is covered in health insurance?",
+  //   reference: reference[1],
+  // },
+  // {
+  //   index: 3,
+  //   title: "What is not covered in health insurance?",
+  //   reference: reference[2],
+  // },
+  // {
+  //   index: 4,
+  //   title: "What are the key factors to consider while buying health insurance?",
+  //   reference: reference[3],
+  // },
+  // {
+  //   index: 5,
+  //   title: "What are health insurance riders?",
+  //   reference: reference[4],
+  // },
+  // {
+  //   index: 6,
+  //   title: "Which Factors Affect Health Insurance Premium?",
+  //   reference: reference[5],
+  // },
+  // {
+  //   index: 7,
+  //   title: "Should I buy additional insurance if I'm covered under employer group health?",
+  //   reference: reference[6],
+  // },
 ];
