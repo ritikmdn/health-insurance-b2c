@@ -15,30 +15,41 @@ interface GuideProps {
 
 const Guide: React.FC<GuideProps> = ({ userDetails }) => {
   const [currentGuideIndex, setCurrentGuideIndex] = useState(0);
-  // Locally store our blog posts content
-  const [references, setReferences] = useState<string[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean[]>([]);
+  const [guideData, setGuideData] = useState<{ reference: string; isLoading: boolean }[]>([]);
   const { complete } = useCompletion({
     api: '/api/completion',
   });
 
   useEffect(() => {
-    const fetchReference = async (index: number) => {
-      setIsLoading(prev => ({ ...prev, [index]: true })); // Set loading state for the specific guide
-      // const userDetailString = `Gender: ${userDetails.gender}, Age: ${userDetails.age}, Corporate Cover: ${userDetails.corporateCover}, Additional Comments: ${userDetails.additionalComments}`;
-      const prompt = `Gender: ${userDetails.gender}, Age: ${userDetails.age}, Corporate Cover: ${userDetails.corporateCover}, Additional Comments: ${userDetails.additionalComments}\nReference guide: ${guide[index].reference}`;
-      const completion = await complete(prompt);
-      setReferences(prev => ({ ...prev, [index]: completion || 'Error fetching reference' }));
-      setIsLoading(prev => ({ ...prev, [index]: false })); // Unset loading state for the specific guide
+    const fetchAllReferences = async () => {
+      // Start with all guides marked as loading
+      const initialGuideData = guide.map(() => ({ reference: '', isLoading: true }));
+      setGuideData(initialGuideData);
+    
+      // Fetch all references in parallel
+      const fetchPromises = guide.map((_, index) => {
+        const prompt = `User details:\nGender: ${userDetails.gender}, Age: ${userDetails.age}, Corporate Cover: ${userDetails.corporateCover}, Additional Comments: ${userDetails.additionalComments}\n---\nReference guide: ${guide[index].reference}`;
+        return complete(prompt)
+          .then(response => response || '') // Ensure response is a string
+          .catch(() => 'Error fetching reference'); // Handle errors
+      });
+    
+      // Wait for all fetches to complete
+      const references = await Promise.all(fetchPromises);
+    
+      // Update the guide data with the new references, no longer loading
+      setGuideData(references.map(reference => ({
+        reference, // `reference` is guaranteed to be a string now
+        isLoading: false,
+      })));
     };
-
-    // Fetch all references when the component mounts
-    if (userDetails) { // Only fetch if userDetails is not null
-      guide.forEach((_, index) => fetchReference(index));
+    
+  
+    if (userDetails && guide.length > 0) {
+      fetchAllReferences();
     }
-  }, [complete, userDetails]); // Include userDetails in the dependency array
-
-
+  }, [complete, userDetails, guide]); // 'guide' needs to be added to dependencies array if it can change
+  
   const goNext = () => {
     setCurrentGuideIndex(prevIndex => prevIndex + 1);
     window.scrollTo(0, 0);
@@ -51,14 +62,15 @@ const Guide: React.FC<GuideProps> = ({ userDetails }) => {
 
   // Display a loader for the current guide if its reference hasn't loaded yet
   const renderCurrentGuide = () => {
-    if (isLoading[currentGuideIndex]) {
+    const currentGuide = guideData[currentGuideIndex];
+    if (currentGuide?.isLoading) {
       return (
         <div className="flex justify-center items-center">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 1, loop: Infinity, ease: "linear" }}
-          className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full"
-        />
+          <motion.div
+            animate={{ rotate: 36000 }}
+            transition={{ duration: 100, loop: Infinity, ease: "linear" }}
+            className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full"
+          />
         </div>
       );
     }
@@ -67,7 +79,7 @@ const Guide: React.FC<GuideProps> = ({ userDetails }) => {
       <GuideTemplate
         index={guide[currentGuideIndex].index}
         title={guide[currentGuideIndex].title}
-        reference={references[currentGuideIndex]}
+        reference={currentGuide?.reference}
       />
     );
   };
@@ -558,34 +570,34 @@ const guide = [
     title: "What is health insurance?",
     reference: reference[0],
   },
-  // {
-  //   index: 2,
-  //   title: "What is covered in health insurance?",
-  //   reference: reference[1],
-  // },
-  // {
-  //   index: 3,
-  //   title: "What is not covered in health insurance?",
-  //   reference: reference[2],
-  // },
-  // {
-  //   index: 4,
-  //   title: "What are the key factors to consider while buying health insurance?",
-  //   reference: reference[3],
-  // },
-  // {
-  //   index: 5,
-  //   title: "What are health insurance riders?",
-  //   reference: reference[4],
-  // },
-  // {
-  //   index: 6,
-  //   title: "Which Factors Affect Health Insurance Premium?",
-  //   reference: reference[5],
-  // },
-  // {
-  //   index: 7,
-  //   title: "Should I buy additional insurance if I'm covered under employer group health?",
-  //   reference: reference[6],
-  // },
+  {
+    index: 2,
+    title: "What is covered in health insurance?",
+    reference: reference[1],
+  },
+  {
+    index: 3,
+    title: "What is not covered in health insurance?",
+    reference: reference[2],
+  },
+  {
+    index: 4,
+    title: "What are the key factors to consider while buying health insurance?",
+    reference: reference[3],
+  },
+  {
+    index: 5,
+    title: "What are health insurance riders?",
+    reference: reference[4],
+  },
+  {
+    index: 6,
+    title: "Which Factors Affect Health Insurance Premium?",
+    reference: reference[5],
+  },
+  {
+    index: 7,
+    title: "Should I buy additional insurance if I'm covered under employer group health?",
+    reference: reference[6],
+  },
 ];

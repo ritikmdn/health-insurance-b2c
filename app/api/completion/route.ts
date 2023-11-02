@@ -18,17 +18,18 @@ export async function POST(req: Request) {
     stream: true,
     messages: [
       {
+        role: "system",
+        content: "Task: Personalise the reference guide as per user's details and preferences.\nThe output should be \n(i) summarised in less than 200 words with funny tone, \n(ii) formatted in markdown, \n (iii) no title but include sub titles"
+      },
+      {
         role: 'user',
-        content: `You're an expert health insurance advisor that specialises in helping customers understand health insurance by tailoring content as per user's requirements.
-        ---
-        Task: Personalise a dark humour joke for the user, convincing them to buy health insurance. Restrict the joke to 5 lines.
-        ---
+        content: `
         ${prompt}
-        ---
+        \n---\n
         Output:\n`,
       },
     ],
-    temperature: 0.3,
+    temperature: 0.1,
     max_tokens: 1000,
     top_p: 1,
     frequency_penalty: 0,

@@ -27,7 +27,7 @@ type UserDetails = {
 const UserForm: FC<UserFormProps> = ({ onFormSubmit }) => {
   const [corporateCover, setCorporateCover] = useState('no');
   const [gender, setGender] = useState('male');
-  const [age, setAge] = useState('young-adults');
+  const [age, setAge] = useState("18-24");
   const [textAreaInput, setTextAreaInput] = useState('');
 
   const handleSubmit = (event: FormEvent) => {
@@ -77,15 +77,15 @@ const UserForm: FC<UserFormProps> = ({ onFormSubmit }) => {
           <ToggleGroup.Root
             className="inline-flex rounded shadow-indigo-100 space-x-px relative bg-white shadow h-[50px] w-[500px]"
             type="single"
-            defaultValue="young-adults"
+            defaultValue="18-24"
             onValueChange={value => setAge(value)}
           >
-            <ToggleGroup.Item className={toggleGroupItemClasses} value="children">0-17</ToggleGroup.Item>
-            <ToggleGroup.Item className={toggleGroupItemClasses} value="young-adults">18-24</ToggleGroup.Item>
-            <ToggleGroup.Item className={toggleGroupItemClasses} value="adults">25-34</ToggleGroup.Item>
-            <ToggleGroup.Item className={toggleGroupItemClasses} value="middle-aged-adults">35-54</ToggleGroup.Item>
-            <ToggleGroup.Item className={toggleGroupItemClasses} value="baby-boomers">55-64</ToggleGroup.Item>
-            <ToggleGroup.Item className={toggleGroupItemClasses} value="seniors">65+</ToggleGroup.Item>
+            <ToggleGroup.Item className={toggleGroupItemClasses} value="0-17">0-17</ToggleGroup.Item>
+            <ToggleGroup.Item className={toggleGroupItemClasses} value="18-24">18-24</ToggleGroup.Item>
+            <ToggleGroup.Item className={toggleGroupItemClasses} value="25-34">25-34</ToggleGroup.Item>
+            <ToggleGroup.Item className={toggleGroupItemClasses} value="35-54">35-54</ToggleGroup.Item>
+            <ToggleGroup.Item className={toggleGroupItemClasses} value="55-64">55-64</ToggleGroup.Item>
+            <ToggleGroup.Item className={toggleGroupItemClasses} value="65+">65+</ToggleGroup.Item>
           </ToggleGroup.Root>
         </div>
         <div>

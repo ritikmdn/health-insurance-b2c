@@ -32,6 +32,12 @@ export default function GuideTemplate({
               className="text-2xl font-semibold py-4"
             />
           ),
+          p: ({ node, ...props }) => (
+            <p
+              {...props}
+              className="py-3"
+            />
+          ),
         }}
         remarkPlugins={[remarkGfm]}
       >
