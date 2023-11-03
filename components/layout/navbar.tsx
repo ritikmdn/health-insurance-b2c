@@ -21,9 +21,9 @@ export default function NavBar() {
             <Image
               src="/logo.png"
               alt="Simple.health logo"
-              width="40"
-              height="40"
-              className="mr-1 rounded-sm"
+              width="30"
+              height="30"
+              className="mr-2 rounded-sm"
             ></Image>
             <p>Simple.health</p>
           </Link>
