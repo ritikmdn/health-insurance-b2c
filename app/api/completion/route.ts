@@ -19,14 +19,20 @@ export async function POST(req: Request) {
     messages: [
       {
         role: "system",
-        content: "Task: Personalise the reference guide as per user's details and preferences.\nThe output should be \n(i) summarised in less than 200 words with funny tone, \n(ii) formatted in markdown, \n (iii) no title but include sub titles"
+        content: "You're a helpful health insurance advisor who personalises the reference guide as per user's details and preferences."
       },
       {
         role: 'user',
         content: `
+        Task: Generate a personalised guide in less than 200 words
+        \n---\n
+        Output guidelines:\n(i) Funny and respectful\n(ii) Format in markdown (with no title)\n(iii) Re-order content basis user details\n(iv) Exclude irrelevant content
+        \n---\n
+        Please please ensure the guide is fun and personalised! Otherwise I might lose my job.
+        \n---\n
         ${prompt}
         \n---\n
-        Output:\n`,
+        Output:\n`
       },
     ],
     temperature: 0.1,

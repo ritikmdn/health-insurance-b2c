@@ -16,6 +16,8 @@ export async function POST(req: Request) {
   const json = await req.json()
   const { messages, previewToken } = json
 
+  messages.unshift({ role: 'system', content: "You're a qualified health insurance advisor. Keep your response brief, typically within 150 words. Restrict your response to health insurance and related topics." });
+
   if (previewToken) {
     configuration.apiKey = previewToken
   }

@@ -5,7 +5,7 @@ import UserForm from '@/components/ai-advisor/user-form';
 import SquigglyLines from "@/components/home/squiggly-lines"
 import Guide from '@/components/ai-advisor/guide';
 
-export const runtime = 'edge';
+// export const runtime = 'edge';
 
 export interface UserDetails {
   gender: string;

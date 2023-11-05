@@ -1,7 +1,7 @@
 'use client'
 
 import { useChat, type Message } from 'ai/react'
-import { ChatPanel } from '@/components/chat/chat-panel-home'
+import { ChatPanel } from '@/components/home/chat-panel-home'
 import useLocalStorage from '@/lib/hooks/use-local-storage'
 import { useState } from 'react'
 import { toast } from 'react-hot-toast'
@@ -24,7 +24,8 @@ export function ChatHome({ id, initialMessages, className }: ChatProps) {
   const router = useRouter();
 
   const handleChatSubmit = () => {
-    router.push(`/chat?input=${input}`)
+    const url = `${window.location.origin}/chat?input=${encodeURIComponent(input)}`;
+    window.open(url, '_blank');
   }
 
   // const { messages, append, reload, stop, isLoading, input, setInput } =

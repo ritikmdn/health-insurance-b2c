@@ -15,7 +15,7 @@ const ProgressBar: React.FC<Props> = ({ currentIndex, totalGuides }) => {
 
   return (
     <Progress.Root
-      className="z-10 relative overflow-hidden bg-indigo-50/80 rounded-full w-full h-[25px]"
+      className="z-10 relative overflow-hidden bg-indigo-50/80 rounded-full w-full h-[25px] mb-[100px]"
       style={{
         transform: 'translateZ(0)',
       }}

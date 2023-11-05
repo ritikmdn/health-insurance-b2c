@@ -11,7 +11,7 @@ const toggleGroupItemClasses =
   'px-5 color-mauve11 data-[state=on]:bg-indigo-50/80 flex flex-grow h-[50px] items-center justify-center bg-white text-base leading-4 first:rounded-l last:rounded-r focus:z-9 focus:shadow-[0_0_0_2px] focus:shadow-none focus:outline-none';
 
 const selectItemClasses =
-  'z-10 px-5 overflow-hidden bg-transparent w-[500px] text-center hover:bg-indigo-50/80 hover:outline-none';
+  'z-10 px-5 overflow-hidden bg-transparent sm:w-[500px] w-[300px] text-center hover:bg-indigo-50/80 hover:outline-none';
 
 interface UserFormProps {
   onFormSubmit: (details: UserDetails) => void;
@@ -59,7 +59,7 @@ const UserForm: FC<UserFormProps> = ({ onFormSubmit }) => {
             What is your gender?
           </h2>
           <ToggleGroup.Root
-            className="inline-flex rounded shadow-indigo-100 space-x-px relative bg-white shadow h-[50px] w-[500px]"
+            className="inline-flex rounded shadow-indigo-100 space-x-px relative bg-white shadow h-[50px] sm:w-[500px] w-[300px]"
             type="single"
             defaultValue="male"
             onValueChange={value => setGender(value)}
@@ -75,7 +75,7 @@ const UserForm: FC<UserFormProps> = ({ onFormSubmit }) => {
             What is your age?
           </h2>
           <ToggleGroup.Root
-            className="inline-flex rounded shadow-indigo-100 space-x-px relative bg-white shadow h-[50px] w-[500px]"
+            className="inline-flex rounded shadow-indigo-100 space-x-px relative bg-white shadow h-[50px] sm:w-[500px] w-[300px]"
             type="single"
             defaultValue="18-24"
             onValueChange={value => setAge(value)}
@@ -93,7 +93,7 @@ const UserForm: FC<UserFormProps> = ({ onFormSubmit }) => {
             Do you have a corporate cover?
           </h2>
           <ToggleGroup.Root
-            className="inline-flex rounded shadow-indigo-100 space-x-px relative bg-white shadow h-[50px] w-[500px]"
+            className="inline-flex rounded shadow-indigo-100 space-x-px relative bg-white shadow h-[50px] sm:w-[500px] w-[300px]"
             type="single"
             defaultValue="no"
             onValueChange={value => setCorporateCover(value)}
@@ -106,7 +106,7 @@ const UserForm: FC<UserFormProps> = ({ onFormSubmit }) => {
           <h2 className='font-semibold py-4 text-xl'>
             Any additional comments?
           </h2>
-          <div className="relative flex min-h-[50px] max-h-[100px] w-[500px] grow flex-col overflow-hidden bg-white sm:rounded sm:px-0 shadow shadow-indigo-100">
+          <div className="relative flex min-h-[50px] max-h-[100px] sm:w-[500px] w-[300px] grow flex-col overflow-hidden bg-white sm:rounded sm:px-0 shadow shadow-indigo-100">
             <Textarea
               tabIndex={0}
               rows={3}
@@ -118,7 +118,7 @@ const UserForm: FC<UserFormProps> = ({ onFormSubmit }) => {
           </div>
         </div>
         <div className='pt-5'>
-          <button type="submit" className="flex items-center mt-5 rounded-lg border justify-center font-semibold bg-blue-500 h-[50px] w-[500px] text-sm text-white transition-all hover:bg-white hover:text-blue-500">
+          <button type="submit" className="flex items-center mt-5 rounded-lg border justify-center font-semibold bg-blue-500 h-[50px] sm:w-[500px] w-[300px] text-sm text-white transition-all hover:bg-white hover:text-blue-500">
             Let&apos;s get started
             <ChevronRight size={16} className="ml-2" aria-hidden="true" />
           </button>

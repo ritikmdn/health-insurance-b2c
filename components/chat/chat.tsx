@@ -47,13 +47,13 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
     })
 
   useEffect(() => {
-    console.log("useEffect executed. Initial message:", initialMessage);
+    // console.log("useEffect executed. Initial message:", initialMessage);
     if (initialMessage) {
       setInput(initialMessage as string)
-      console.log("Input state updated:", input);
+      // console.log("Input state updated:", input);
 
       append({ content: initialMessage as string, role: 'user' });
-      console.log("Message appended");
+      // console.log("Message appended");
     }
   }, [])
 

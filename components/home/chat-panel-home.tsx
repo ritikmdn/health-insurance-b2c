@@ -11,7 +11,7 @@ export function ChatPanel({
   onSubmitMessage,
 }: ChatPanelProps) {
   return (
-    <div className="fixed inset-x-0 bottom-4 bg-gradient-to-b from-muted/10 from-10% to-muted/30 to-50%">
+    <div className="z-10 fixed inset-x-0 bottom-4 bg-gradient-to-b from-muted/10 from-10% to-muted/30 to-50%">
       <div className="mx-auto sm:max-w-2xl sm:px-4">
         <div className="space-y-2 bg-indigo-50/80 px-2 py-1 shadow-lg sm:rounded-md md:py-2">
           <PromptForm

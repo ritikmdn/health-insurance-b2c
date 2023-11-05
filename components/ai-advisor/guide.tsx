@@ -8,6 +8,7 @@ import SquigglyLines from "@/components/home/squiggly-lines"
 import { useCompletion } from 'ai/react';
 import { motion } from 'framer-motion';
 import { UserDetails } from '@/app/ai-advisor/page';
+import { ChatHome } from '@/components/home/chat-home'
 
 interface GuideProps {
   userDetails: UserDetails; // Use the imported UserDetails type here
@@ -100,6 +101,7 @@ const Guide: React.FC<GuideProps> = ({ userDetails }) => {
             </div>
           </div>
           <ProgressBar currentIndex={currentGuideIndex} totalGuides={guide.length} />
+          <ChatHome/>
         </>
       ) : (
         <div className='flex flex-col items-center'>
@@ -117,6 +119,7 @@ const Guide: React.FC<GuideProps> = ({ userDetails }) => {
           </button>
         </div>
       )}
+      
     </>
   );
 };

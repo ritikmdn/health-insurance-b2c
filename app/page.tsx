@@ -1,4 +1,4 @@
-import { ChatHome } from '@/components/chat/chat-home'
+import { ChatHome } from '@/components/home/chat-home'
 
 // export const runtime = 'edge'
 
