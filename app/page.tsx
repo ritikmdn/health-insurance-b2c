@@ -4,8 +4,8 @@ import { ChatHome } from '@/components/home/chat-home'
 
 import Card from "@/components/home/card";
 import ComponentGrid from "@/components/home/component-grid";
-import Image from "next/image";
 import { Sparkle } from 'lucide-react';
+import { FlaskConical } from 'lucide-react';
 import SquigglyLines from "@/components/home/squiggly-lines"
 import Link from 'next/link'
 
@@ -13,7 +13,7 @@ export default async function Home() {
 
   return (
     <>
-      <div className="z-10 w-full max-w-2xl my-3">
+      <div className="w-full max-w-2xl my-3">
         <h1 className="mx-auto max-w-4xl font-display text-5xl text-center font-bold tracking-normal animate-fade-up drop-shadow-sm [text-wrap:balance] md:text-6xl md:leading-[5rem]">
           Insurance{" "}
           <span className="relative whitespace-nowrap text-blue-600">
@@ -61,7 +61,7 @@ const features = [
         <Link href="/ai-advisor">
         <button className="flex items-center rounded-lg border font-semibold bg-blue-500 p-3 px-4 text-sm text-white transition-all hover:bg-white hover:text-blue-500">
         <Sparkle size={16} className="mr-2" aria-hidden="true" />
-        Launch AI assistant
+        Launch AI Assistant
       </button>
       </Link>
       ),
@@ -71,10 +71,12 @@ const features = [
     description:
       "**Find the top 3 policies that suit your requirements**: our AI advisor personalises its suggestions based on what's important to you.",
       demo: (
-        <button className="flex items-center rounded-lg border font-semibold bg-gray-300 p-3 px-4 text-sm text-white transition-all">
-        <Sparkle size={16} className="mr-2" aria-hidden="true" />
-        Coming soon
+        <Link href="https://docs.google.com/forms/d/e/1FAIpQLScfjSwjjFSfR19jYSPV4Jwusfl2AoNM2NHubEYIrLSuT3r_kQ/viewform?usp=sf_link" target="_blank">
+        <button className="flex items-center rounded-lg border font-semibold hover:bg-blue-500 p-3 px-4 text-sm hover:text-white transition-all bg-white text-blue-500">
+        <FlaskConical size={16} className="mr-2" aria-hidden="true" />
+        Join Waitlist
       </button>
+      </Link>
       ),
   },
   {
@@ -82,10 +84,12 @@ const features = [
     description:
       "**With our AI's expertise, not only compare but question**: put policies head to head, ask questions, and unveil the nuances.",
       demo: (
-        <button className="flex items-center rounded-lg border font-semibold bg-gray-200 p-3 px-4 text-sm text-white transition-all">
-        <Sparkle size={16} className="mr-2" aria-hidden="true" />
-        Coming soon
+        <Link href="https://docs.google.com/forms/d/e/1FAIpQLScfjSwjjFSfR19jYSPV4Jwusfl2AoNM2NHubEYIrLSuT3r_kQ/viewform?usp=sf_link" target="_blank">
+        <button className="flex items-center rounded-lg border font-semibold hover:bg-blue-500 p-3 px-4 text-sm hover:text-white transition-all bg-white text-blue-500">
+        <FlaskConical size={16} className="mr-2" aria-hidden="true" />
+        Join Waitlist
       </button>
+      </Link>
       ),
   },
 ];
