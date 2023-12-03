@@ -13,30 +13,20 @@ import { toast } from 'react-hot-toast'
 import { useSearchParams } from 'next/navigation'
 import { useEffect } from 'react';
 
-// const IS_PREVIEW = process.env.VERCEL_ENV === 'preview'
 export interface ChatProps extends React.ComponentProps<'div'> {
   initialMessages?: Message[]
   id?: string
 }
 
 export function Chat({ id, initialMessages, className }: ChatProps) {
-  // console.log("Chat component rendered.");
   const searchParams = useSearchParams()
   const initialMessage = searchParams.get("input")
-  // console.log("URL Initial Message:", initialMessage);
-  // const [previewToken, setPreviewToken] = useLocalStorage<string | null>(
-  //   'ai-token',
-  //   null
-  // )
-  // const [previewTokenDialog, setPreviewTokenDialog] = useState(IS_PREVIEW)
-  // const [previewTokenInput, setPreviewTokenInput] = useState(previewToken ?? '')
   const { messages, append, reload, stop, isLoading, input, setInput } =
     useChat({
       initialMessages,
       id,
       body: {
         id,
-        // previewToken
       },
       onResponse(response) {
         if (response.status === 401) {
@@ -47,13 +37,9 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
     })
 
   useEffect(() => {
-    // console.log("useEffect executed. Initial message:", initialMessage);
     if (initialMessage) {
       setInput(initialMessage as string)
-      // console.log("Input state updated:", input);
-
       append({ content: initialMessage as string, role: 'user' });
-      // console.log("Message appended");
     }
   }, [])
 
