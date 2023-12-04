@@ -10,11 +10,11 @@ const exampleMessages = [
   },
   {
     heading: 'Maternitiy benefits',
-    message: `Is maternity cover included in the health plan? What expenses are covered by the maternity benefit in health insurance?`
+    message: 'Is maternity cover included in the health plan? What expenses are covered by the maternity benefit in health insurance?'
   },
   {
     heading: 'Tax benefits of health insurance',
-    message: `What is the maximum deduction under Section 80D for health insurance plans?`
+    message: 'What is the maximum deduction under Section 80D for health insurance plans?'
   }
 ]
 
@@ -23,10 +23,10 @@ export function EmptyScreen({ setInput }: Pick<UseChatHelpers, 'setInput'>) {
     <div className="mx-auto max-w-2xl px-4">
       <div className="rounded-lg border bg-background p-8">
         <h1 className="mb-2 text-lg font-semibold">
-          Hey, I'm Simple AI Insurance Advisor 👋
+          Hey, I&apos;m Simple AI Insurance Advisor 👋
         </h1>
         <p className="mb-2 leading-normal text-muted-foreground">
-          I'm here to answer your queries related to health insurance.
+          I&apos;m here to answer your queries related to health insurance.
         </p>
         <p className="leading-normal text-muted-foreground">
           You can start a conversation directly or try the following examples:
