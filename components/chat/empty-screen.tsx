@@ -5,12 +5,12 @@ import { IconArrowRight } from '@/components/ui/icons'
 
 const exampleMessages = [
   {
-    heading: 'Explain technical concepts',
-    message: `What is a "serverless function"?`
+    heading: 'Waiting period',
+    message: 'What is waiting period in health insurance policies?'
   },
   {
-    heading: 'Summarize an article',
-    message: 'Summarize the following article for a 2nd grader: \n'
+    heading: 'Maternitiy benefits',
+    message: `Is maternity cover included in the health plan? What expenses are covered by the maternity benefit in health insurance?`
   },
   {
     heading: 'Tax benefits of health insurance',
