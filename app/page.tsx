@@ -13,7 +13,7 @@ export default async function Home() {
 
   return (
     <>
-      <div className="w-full max-w-2xl -my-3">
+      <div className="w-full max-w-2xl">
       <a
           href="/chat"
           className="mx-auto mb-5 flex max-w-fit animate-fade-up items-center justify-center space-x-2 overflow-hidden rounded-full bg-blue-100 px-7 py-2 transition-colors hover:bg-blue-200"
@@ -39,7 +39,7 @@ export default async function Home() {
           Get personalised guidance and not sales pitches. Discover your ideal policy and get contextualised answers, minus the unwanted calls.
         </p>
       </div>
-      <div className="my-10 grid w-full max-w-screen-xl animate-fade-up grid-cols-1 gap-10 px-5 md:grid-cols-3 xl:px-0">
+      <div className="pt-10 grid w-full max-w-screen-xl animate-fade-up grid-cols-1 gap-10 px-5 md:grid-cols-3 xl:px-0">
         {/* <div className="my-10 grid w-50% max-w-screen-xl animate-fade-up grid-cols-1 gap-10 px-5 md:grid-cols-1 xl:px-0"> */}
         {features.map(({ title, description, demo }) => (
           <Card
@@ -56,7 +56,7 @@ export default async function Home() {
           />
         ))}
       </div>
-      <ChatHome />
+      {/* <ChatHome /> */}
     </>
   );
 }

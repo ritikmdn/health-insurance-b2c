@@ -25,7 +25,7 @@ export function ChatHome({ id, initialMessages, className }: ChatProps) {
 
   const handleChatSubmit = () => {
     const url = `${window.location.origin}/chat?input=${encodeURIComponent(input)}`;
-    window.open(url, '_blank');
+    window.open(url);
   }
 
   // const { messages, append, reload, stop, isLoading, input, setInput } =

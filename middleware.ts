@@ -1,25 +1,37 @@
-import { NextResponse, type NextRequest } from 'next/server'
-import { createClient } from './utils/supabase/middleware'
+// pages/_middleware.ts
+import { NextResponse, type NextRequest } from 'next/server';
+import { createClient } from './utils/supabase/middleware';
+import { User } from '@supabase/supabase-js';
 
 export async function middleware(request: NextRequest) {
-  try {
-    // This `try/catch` block is only here for the interactive tutorial.
-    // Feel free to remove once you have Supabase connected.
-    const { supabase, response } = createClient(request)
+  const { pathname } = request.nextUrl;
 
-    // Refresh session if expired - required for Server Components
-    // https://supabase.com/docs/guides/auth/auth-helpers/nextjs#managing-session-with-middleware
-    await supabase.auth.getSession()
+  // Only apply middleware logic to the '/chat' route
+  if (pathname === '/chat') {
+    const { supabase, response } = createClient(request);
 
-    return response
-  } catch (e) {
-    // If you are here, a Supabase client could not be created!
-    // This is likely because you have not set up environment variables.
-    // Check out http://localhost:3000 for Next Steps.
-    return NextResponse.next({
-      request: {
-        headers: request.headers,
-      },
-    })
+    try {
+      const { data } = await supabase.auth.getUser();
+
+      // Redirect to login if user is not authenticated
+      if (!data.user) {
+        const url = request.nextUrl.clone();
+        url.pathname = '/login'; // Redirect to the login page
+        return NextResponse.redirect(url);
+      }
+
+      // Proceed to the chat page if user is authenticated
+      return response;
+    } catch (e) {
+      // Handle any errors (e.g., Supabase client not created)
+      return NextResponse.next({
+        request: {
+          headers: request.headers,
+        },
+      });
+    }
   }
+
+  // For all other routes, do nothing and continue with the normal flow
+  return NextResponse.next();
 }
