@@ -4,7 +4,7 @@ import { ChatHome } from '@/components/home/chat-home'
 
 import Card from "@/components/home/card";
 import ComponentGrid from "@/components/home/component-grid";
-import { Sparkle } from 'lucide-react';
+import { Sparkles, ArrowRight } from 'lucide-react';
 import { FlaskConical } from 'lucide-react';
 import SquigglyLines from "@/components/home/squiggly-lines"
 import Link from 'next/link'
@@ -13,7 +13,17 @@ export default async function Home() {
 
   return (
     <>
-      <div className="w-full max-w-2xl my-3">
+      <div className="w-full max-w-2xl -my-3">
+      <a
+          href="/chat"
+          className="mx-auto mb-5 flex max-w-fit animate-fade-up items-center justify-center space-x-2 overflow-hidden rounded-full bg-blue-100 px-7 py-2 transition-colors hover:bg-blue-200"
+        >
+           <Sparkles size={16} className="mr-2 text-blue-500" aria-hidden="true" />
+          <p className="text-sm font-semibold text-blue-500">
+            Try Simple AI Advisor chat
+          </p>
+          <ArrowRight size={16} className="mr-2 text-blue-500" aria-hidden="true" />
+        </a>
         <h1 className="mx-auto max-w-4xl font-display text-5xl text-center font-bold tracking-normal animate-fade-up drop-shadow-sm [text-wrap:balance] md:text-6xl md:leading-[5rem]">
           Insurance{" "}
           <span className="relative whitespace-nowrap text-blue-600">

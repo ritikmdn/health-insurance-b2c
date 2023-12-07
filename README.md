@@ -1,5 +1,4 @@
 <a href="https://getsimple.health">
-  <img src="https://getsimple.health/opengraph-image">
   <h1 align="center">Simple.health</h1>
 </a>
 
@@ -23,13 +22,11 @@ Simple.health is your personal AI health insurance advisor that helps you find h
 ### Frameworks
 
 - [Next.js](https://nextjs.org/) – React framework for building performant apps with the best developer experience
-- [Auth.js](https://authjs.dev/) – Handle user authentication with ease with providers like Google, Twitter, GitHub, etc.
-- [Prisma](https://www.prisma.io/) – Typescript-first ORM for Node.js
 
 ### Platforms
 
 - [Vercel](https://vercel.com/) – Easily preview & deploy changes with git
-- [Vercel Postgres](https://vercel.com/postgres) – Serverless Postgres at the Edge
+- [Supabase](https://supabase.com) – Serverless Postgres
 
 ### UI
 
