@@ -32,6 +32,7 @@ export default function LoginPage() {
       supabaseClient={supabaseClient}
       providers={['google']}
       socialLayout="vertical"
+      redirectTo='/chat'
       appearance={{
         theme: ThemeSupa,
         variables: {
