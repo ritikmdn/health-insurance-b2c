@@ -10,27 +10,36 @@ import { useState, useEffect } from 'react';
 import { createClient } from '@/utils/supabase/client';
 import { User } from '@supabase/supabase-js';
 
+const supabase = createClient();
+
 export default function NavBar() {
   const scrolled = useScroll(50);
   const { SignInModal, setShowSignInModal } = useSignInModal();
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    const fetchUser = async () => {
-      const supabase = createClient();
-      const { data } = await supabase.auth.getUser();
-
-      if (data && data.user) {
+    const { data: authListener } = supabase.auth.onAuthStateChange(async (event) => {
+      if (event === 'SIGNED_OUT') {
+        setUser(null);
+      } else {
+        const { data } = await supabase.auth.getUser();
         setUser(data.user);
       }
+    });
+
+    const fetchUser = async () => {
+      const { data } = await supabase.auth.getUser();
+      setUser(data.user);
     };
     fetchUser();
+
+    return () => {
+      authListener.subscription.unsubscribe();
+    };
   }, []);
 
   const signOut = async () => {
-    const supabase = createClient();
     await supabase.auth.signOut();
-    window.location.reload();
   };
 
   return (

@@ -3,29 +3,35 @@ import { useState, Dispatch, SetStateAction, useEffect } from "react";
 import { Auth } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
 import { createClient } from '@/utils/supabase/client';
+import { useRouter } from "next/navigation";
 
 const supabaseClient = createClient();
 
 const SignInModal = ({
   showSignInModal,
-  setShowSignInModal,
-  onSignInComplete,
+  setShowSignInModal
 }: {
   showSignInModal: boolean;
   setShowSignInModal: Dispatch<SetStateAction<boolean>>;
-  onSignInComplete: () => void;
 }) => {
+
+  const router = useRouter();
+
   useEffect(() => {
-    const { data: authListener } = supabaseClient.auth.onAuthStateChange((event, session) => {
-      if (event === 'SIGNED_IN' && session) {
-        onSignInComplete();
-      }
-    });
+
+      const { data: authListener } = supabaseClient.auth.onAuthStateChange(
+        (event, session) => {
+          if (event === 'SIGNED_IN') {
+            setShowSignInModal(false);
+          }
+        }
+      );
 
     return () => {
       authListener.subscription.unsubscribe();
+      console.log("what is happening?");
     };
-  }, [onSignInComplete]);
+  }, [setShowSignInModal, router]);
 
   return (
     <Modal showModal={showSignInModal} setShowModal={setShowSignInModal}>
@@ -55,14 +61,12 @@ export function useSignInModal() {
 
   const onSignInComplete = () => {
     setShowSignInModal(false);
-    window.location.href = '/chat';
   };
 
   const SignInModalCallback = () => (
     <SignInModal
       showSignInModal={showSignInModal}
       setShowSignInModal={setShowSignInModal}
-      onSignInComplete={onSignInComplete}
     />
   );
 
