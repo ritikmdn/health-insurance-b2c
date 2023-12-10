@@ -29,7 +29,6 @@ const SignInModal = ({
 
     return () => {
       authListener.subscription.unsubscribe();
-      console.log("what is happening?");
     };
   }, [setShowSignInModal, router]);
 

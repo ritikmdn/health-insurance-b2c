@@ -22,8 +22,12 @@ export default function NavBar() {
       if (event === 'SIGNED_OUT') {
         setUser(null);
       } else {
-        const { data } = await supabase.auth.getUser();
-        setUser(data.user);
+        try {
+          const { data } = await supabase.auth.getUser();
+          setUser(data.user);
+        } catch (error) {
+          console.error('Error fetching user data:', error);
+        }
       }
     });
 
@@ -39,7 +43,11 @@ export default function NavBar() {
   }, []);
 
   const signOut = async () => {
-    await supabase.auth.signOut();
+    try {
+      await supabase.auth.signOut();
+    } catch (error) {
+      console.error('Error signing out:', error);
+    }
   };
 
   return (
