@@ -7,8 +7,6 @@ import { ChatList } from '@/components/chat/chat-list'
 import { ChatPanel } from '@/components/chat/chat-panel'
 import { EmptyScreen } from '@/components/chat/empty-screen'
 import { ChatScrollAnchor } from '@/components/chat/chat-scroll-anchor'
-import useLocalStorage from '@/lib/hooks/use-local-storage'
-import { useState } from 'react'
 import { toast } from 'react-hot-toast'
 import { useSearchParams } from 'next/navigation'
 import { useEffect } from 'react';

@@ -4,51 +4,19 @@ import Image from "next/image";
 import Link from "next/link";
 import useScroll from "@/lib/hooks/use-scroll";
 import { Phone } from 'lucide-react';
-import { useSignInModal } from "@/components/layout/sign-in-modal";
 import UserDropdown from "@/components/layout/user-dropdown";
-import { useState, useEffect } from 'react';
-import { createClient } from '@/utils/supabase/client';
-import { User } from '@supabase/supabase-js';
-
-const supabase = createClient();
+import useAuthStore from '@/utils/store/auth-store';
+import { useSignInModal } from "@/components/layout/sign-in-modal";
+import { useEffect } from 'react';
 
 export default function NavBar() {
   const scrolled = useScroll(50);
+  const { user, signOut, checkUser } = useAuthStore();
   const { SignInModal, setShowSignInModal } = useSignInModal();
-  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    const { data: authListener } = supabase.auth.onAuthStateChange(async (event) => {
-      if (event === 'SIGNED_OUT') {
-        setUser(null);
-      } else {
-        try {
-          const { data } = await supabase.auth.getUser();
-          setUser(data.user);
-        } catch (error) {
-          console.error('Error fetching user data:', error);
-        }
-      }
-    });
-
-    const fetchUser = async () => {
-      const { data } = await supabase.auth.getUser();
-      setUser(data.user);
-    };
-    fetchUser();
-
-    return () => {
-      authListener.subscription.unsubscribe();
-    };
-  }, []);
-
-  const signOut = async () => {
-    try {
-      await supabase.auth.signOut();
-    } catch (error) {
-      console.error('Error signing out:', error);
-    }
-  };
+    checkUser();
+  }, [checkUser]);
 
   return (
     <>

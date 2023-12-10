@@ -14,7 +14,7 @@ export default function ChatPage() {
   useEffect(() => {
     const { data: authListener } = supabase.auth.onAuthStateChange((event) => {
       if (event === 'SIGNED_OUT') {
-        router.push('/login'); // Use Next.js useRouter to navigate
+        router.push('/login');
       }
     });
   
@@ -22,13 +22,6 @@ export default function ChatPage() {
       authListener.subscription.unsubscribe();
     };
   }, []);
-
-  const checkAuth = async () => {
-    const { data } = await supabase.auth.getUser();
-    if (!data.user) {
-      router.push('/login'); // Redirect to login if not authenticated
-    }
-  };
 
   return <Chat />;
 }
