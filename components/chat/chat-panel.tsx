@@ -47,7 +47,6 @@ export function ChatPanel({
     const { data: { user } } = await supabase.auth.getUser()
 
     if (user) {
-      console.log("it was here")
       const { data, error } = await supabase
         .from('chat_user_inputs')
         .insert([
