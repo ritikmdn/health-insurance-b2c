@@ -8,14 +8,14 @@ import Footer from "@/components/layout/footer";
 import { Suspense } from "react";
 
 export const metadata = {
-  title: "Simple.health: Personalised AI Health Insurance Agent",
+  title: "Simple Insure: Personalised AI Health Insurance Agent",
   description:
-    "Compare health insurance policies and find the best one for you with Simple.health. Leverage AI to find various health insurance plans that are tailored to your requirements and needs",
+    "Compare health insurance policies and find the best one for you with Simple Insure. Leverage AI to find various health insurance plans that are tailored to your requirements and needs",
   twitter: {
     card: "summary_large_image",
-    title: "Simple.health: Personalised AI Health Insurance Agent",
+    title: "Simple Insure: Personalised AI Health Insurance Agent",
     description:
-      "Simple.health is your personal AI health insurance advisor that helps you find health insurance plans that are tailored to your requirements and needs.",
+      "Simple Insure is your personal AI health insurance advisor that helps you find health insurance plans that are tailored to your requirements and needs.",
     creator: "@ritik_mdn11",
   },
   metadataBase: new URL("https://www.getsimple.health"),
@@ -36,7 +36,7 @@ export default async function RootLayout({
         <main className="flex min-h-screen w-full flex-col items-center justify-center pt-[10vh] md:pt-[3vh]">
           {children}
         </main>
-        {/* <Footer /> */}
+        <Footer />
         <Analytics />
         <SpeedInsights />
       </body>

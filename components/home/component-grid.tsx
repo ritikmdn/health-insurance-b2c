@@ -46,7 +46,7 @@ export default function ComponentGrid() {
           /> */}
         </button>
       </Popover>
-      <Tooltip content="Simple.health is your personal AI health insurance advisor that helps you find health insurance plans that are tailored to your requirements and needs.">
+      <Tooltip content="Simple Iealth is your personal AI health insurance advisor that helps you find health insurance plans that are tailored to your requirements and needs.">
         <div className="flex w-36 cursor-default items-center justify-center rounded-md border border-gray-300 px-3 py-2 transition-all duration-75 hover:border-gray-800 focus:outline-none active:bg-gray-100">
           <p className="text-gray-600">Tooltip</p>
         </div>

@@ -22,13 +22,13 @@ const DemoModal = ({
           <a href="https://getsimple.health">
             <Image
               src="/logo.png"
-              alt="Simple.health Logo"
+              alt="Simple Insure Logo"
               className="h-10 w-10 rounded-full"
               width={20}
               height={20}
             />
           </a>
-          <h3 className="font-display text-2xl font-bold">Simple.health</h3>
+          <h3 className="font-display text-2xl font-bold">Simple Insure</h3>
           <p className="text-sm text-gray-500">
           Simple.health is your personal AI health insurance advisor that helps you find health insurance plans that are tailored to your requirements and needs.
           </p>

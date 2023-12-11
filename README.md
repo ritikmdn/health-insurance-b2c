@@ -1,5 +1,5 @@
 <a href="https://getsimple.health">
-  <h1 align="center">Simple.health</h1>
+  <h1 align="center">Simple Insure</h1>
 </a>
 
 <p align="center">

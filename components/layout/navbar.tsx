@@ -31,12 +31,12 @@ export default function NavBar() {
           <Link href="/" className="flex items-center font-display text-2xl">
             <Image
               src="/logo.png"
-              alt="Simple.health logo"
+              alt="Simple Insure logo"
               width="40"
               height="40"
               className="mr-1 rounded-sm"
             ></Image>
-            <p>Simple.health</p>
+            <p>Simple Insure</p>
           </Link>
           <div className="flex gap-2">
             <Link href="https://bit.ly/simpleinsure_healthinsurance" target="_blank">
@@ -47,7 +47,7 @@ export default function NavBar() {
                 Talk to experts
               </button>
             </Link>
-            {user ? (
+            {/* {user ? (
               <UserDropdown user={user} signOut={signOut} />
             ) : (
               <button
@@ -56,7 +56,7 @@ export default function NavBar() {
               >
                 Sign in
               </button>
-            )}
+            )} */}
           </div>
         </div>
       </div>

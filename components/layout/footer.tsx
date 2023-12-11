@@ -1,28 +1,29 @@
-import { BuyMeACoffee } from "../shared/icons";
+import { InstagramLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons'
 
 export default function Footer() {
   return (
-    <div className="absolute w-full py-5 text-center">
-      <p className="text-gray-500">
-        A project by{" "}
+    <div className="absolute w-full py-5 flex flex-col items-center justify-center">
+      <div className="text-center text-gray-400 text-sm max-w-2xl [text-wrap:balance]">
+        <b>Simple Insure</b> is not under the regulation of the Insurance Regulatory and Development Authority of India (IRDAI) and does not maintain partnerships or affiliations with any insurance companies.
+      </div>
+      {/* <div className='flex flex-row justify-center gap-2'>
         <a
-          className="font-semibold text-gray-600 underline-offset-4 transition-colors hover:underline"
-          href="https://twitter.com/steventey"
+          href="https://www.instagram.com/simple.insure/"
           target="_blank"
           rel="noopener noreferrer"
+          className="mt-1 flex max-w-fit items-center justify-center space-x-2 rounded-lg py-2 transition-all duration-75 hover:scale-105"
         >
-          Steven Tey
+          <InstagramLogoIcon className="h-6 w-6" />
         </a>
-      </p>
-      <a
-        href="https://www.buymeacoffee.com/steventey"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mx-auto mt-2 flex max-w-fit items-center justify-center space-x-2 rounded-lg border border-gray-200 bg-white px-6 py-2 transition-all duration-75 hover:scale-105"
-      >
-        <BuyMeACoffee className="h-6 w-6" />
-        <p className="font-medium text-gray-600">Buy me a coffee</p>
-      </a>
+        <a
+          href="https://www.linkedin.com/company/simpleinsure"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-1 flex max-w-fit items-center justify-center space-x-2 rounded-lg py-2 transition-all duration-75 hover:scale-105"
+        >
+          <LinkedInLogoIcon className="h-6 w-6" />
+        </a>
+      </div> */}
     </div>
   );
 }
