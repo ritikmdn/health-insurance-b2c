@@ -44,25 +44,24 @@ export function ChatPanel({
 
     setInput("");
 
-    const { data: { user } } = await supabase.auth.getUser()
+    // const { data: { user } } = await supabase.auth.getUser()
 
-    if (user) {
+    // if (user) {
       const { data, error } = await supabase
-        .from('chat_user_inputs')
+        .from('chat_user_questions')
         .insert([
-          { user_id: user.id, input: value }
+          { question: value }
         ]);
 
       if (error) {
         console.error('Error saving message to Supabase:', error);
-        toast.error('Error saving message');
       }
     }
 
     if (onSubmitMessage) {
       onSubmitMessage();
     }
-  };
+  ;
 
   return (
     <div className="z-10 fixed inset-x-0 bottom-4 bg-gradient-to-b from-muted/10 from-10% to-muted/30 to-50%">
