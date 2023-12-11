@@ -5,18 +5,18 @@ import Link from "next/link";
 import useScroll from "@/lib/hooks/use-scroll";
 import { Phone } from 'lucide-react';
 import UserDropdown from "@/components/layout/user-dropdown";
-import useAuthStore from '@/utils/store/auth-store';
+// import useAuthStore from '@/utils/store/auth-store';
 import { useSignInModal } from "@/components/layout/sign-in-modal";
 import { useEffect } from 'react';
 
 export default function NavBar() {
   const scrolled = useScroll(50);
-  const { user, signOut, checkUser } = useAuthStore();
+  // const { user, signOut, checkUser } = useAuthStore();
   const { SignInModal, setShowSignInModal } = useSignInModal();
 
-  useEffect(() => {
-    checkUser();
-  }, [checkUser]);
+  // useEffect(() => {
+  //   checkUser();
+  // }, [checkUser]);
 
   return (
     <>

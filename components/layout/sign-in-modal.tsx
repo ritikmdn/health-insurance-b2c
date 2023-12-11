@@ -3,13 +3,13 @@ import { useState, Dispatch, SetStateAction } from "react";
 import { Auth } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
 import { createClient } from '@/utils/supabase/client';
-import useAuthStore from '@/utils/store/auth-store';
+// import useAuthStore from '@/utils/store/auth-store';
 import { useRouter } from 'next/navigation';
 
 const supabaseClient = createClient();
 
 const SignInModal = ({ showSignInModal, setShowSignInModal }: { showSignInModal: boolean; setShowSignInModal: Dispatch<SetStateAction<boolean>>; }) => {
-  const { setUser } = useAuthStore();
+  // const { setUser } = useAuthStore();
   const router = useRouter();
 
   useState(() => {
@@ -17,7 +17,7 @@ const SignInModal = ({ showSignInModal, setShowSignInModal }: { showSignInModal:
     const { data: authListener } = supabaseClient.auth.onAuthStateChange(
       (event, session) => {
         if (event === 'SIGNED_IN' && session) {
-          setUser(session.user);
+          // setUser(session.user);
           router.push('/chat');
           setShowSignInModal(false);
         }
