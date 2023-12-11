@@ -44,7 +44,7 @@ export default function NavBar() {
                 className="flex items-center rounded-lg border p-1.5 px-4 text-sm text-black transition-all hover:bg-blue-500 hover:text-white"
               >
                 <Phone size={16} className="mr-2" aria-hidden="true" />
-                Schedule a call
+                Talk to experts
               </button>
             </Link>
             {user ? (
