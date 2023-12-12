@@ -3,19 +3,22 @@ import { nanoid } from '@/lib/utils'
 export const runtime = 'edge'
 
 export async function POST(req: Request) {
-  const json = await req.json();
-  const { messages } = json;
+  const messages = await req.json();
 
   try {
-    const query = encodeURIComponent(messages[messages.length - 1].content);
-    const externalResponse = await fetch(`https://ritikmdn--web-guide-chat-v0-web.modal.run?query=${query}`);
-    
+    const externalResponse = await fetch('https://ritikmdn--web-guide-chat-v0-web.modal.run', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(messages)
+    });
     if (!externalResponse.ok) {
       throw new Error(`HTTP error! Status: ${externalResponse.status}`);
     }
 
     const responseText = await externalResponse.text();
-    const answer = JSON.parse(responseText).answer;
+    const answer = JSON.parse(responseText).response;
 
     return new Response(answer, {
       headers: { 'Content-Type': 'application/json' }
