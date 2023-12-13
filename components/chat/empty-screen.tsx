@@ -9,7 +9,7 @@ const exampleMessages = [
     message: 'What is waiting period in health insurance policies?'
   },
   {
-    heading: 'Maternitiy benefits',
+    heading: 'Maternity benefits',
     message: 'Is maternity cover included in the health plan? What expenses are covered by the maternity benefit in health insurance?'
   },
   {
